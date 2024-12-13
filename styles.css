@@ -1,0 +1,101 @@
+/* General Reset */
+body, h1, h2, h3, p, ul, li, a {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Body Styling */
+body {
+    background: #0a192f;
+    color: #ccd6f6;
+    line-height: 1.6;
+}
+
+/* Header */
+header {
+    background: #0a192f;
+    color: #64ffda;
+    padding: 1rem 0;
+}
+
+nav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+
+ul li a {
+    text-decoration: none;
+    color: #8892b0;
+    transition: color 0.3s;
+}
+
+ul li a:hover {
+    color: #64ffda;
+}
+
+/* Main */
+main {
+    padding: 2rem;
+}
+
+form label {
+    display: block;
+    margin: 1rem 0 0.5rem;
+}
+
+form input, form textarea, form select, form button {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    border: none;
+    border-radius: 4px;
+    background: #112240;
+    color: #ccd6f6;
+}
+
+form button {
+    background: #64ffda;
+    color: #0a192f;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+form button:hover {
+    background: #3c9174;
+}
+
+/* Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th, table td {
+    padding: 1rem;
+    border: 1px solid #112240;
+}
+
+table th {
+    background: #112240;
+}
+
+table tr:hover {
+    background: #1d3149;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background: #0a192f;
+    color: #64ffda;
+}
