@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Car Workshop Appointment</title>
+    <title>User | Automobiles Workshop</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -33,8 +33,8 @@
                 <label>Select Mechanic:</label>
                 <select name="mechanic_id" required>
                     <?php
-                    include 'config.php';
-                    $result = $conn->query("SELECT id, name, (4 - current_appointments) AS slots FROM Mechanics");
+                    include('config.php');
+                    $result = mysqli_query($conn, "Select id, name, max_appointments-current_appointments as slots from mechanics");
                     while ($row = $result->fetch_assoc()) {
                         echo "<option value='{$row['id']}'>{$row['name']} ({$row['slots']} slots left)</option>";
                     }
