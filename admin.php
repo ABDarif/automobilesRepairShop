@@ -9,6 +9,7 @@ $query = "SELECT clients.id, clients.name AS client_name, clients.phone, clients
           JOIN mechanics ON clients.mechanic_id = mechanics.id";
 $result = $conn->query($query);
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,7 +29,7 @@ $result = $conn->query($query);
     </header>
     <main>
         <h2>Appointment List</h2>
-        <table border="1">
+        <table>
             <thead>
                 <tr>
                     <th>Client Name</th>

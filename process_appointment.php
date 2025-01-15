@@ -11,12 +11,18 @@ $appointment_date = $_POST['appointment_date'];
 $mechanic_id = $_POST['mechanic_id'];
 
 // Check if the client already has an appointment on the same date
-$check_query = $conn->prepare("SELECT * FROM clients WHERE name = ?");
-$check_query->execute([$name]);
+
+// get car_license
+$check_query = $conn->prepare("SELECT * FROM clients WHERE car_license = ?");
+$check_query->execute([$car_license]);
 $check_result = $check_query->get_result();
+
+// get appointment date
 $check_query2 = $conn->prepare("SELECT * FROM clients WHERE appointment_date = ?");
 $check_query2->execute([$appointment_date]);
 $check_result2 = $check_query2->get_result();
+
+// check if a car with that licence number has any appointment on the given date
 if ($check_result->num_rows > 0 and $check_result2->num_rows > 0) {
     echo "You already have an appointment on this date.";
     exit;
@@ -28,6 +34,7 @@ $slots_query->bind_param("i", $mechanic_id);
 $slots_query->execute();
 $slots_result = $slots_query->get_result();
 $row = $slots_result->fetch_assoc();
+
 if ($row['slots'] <= 0) {
     echo "Selected mechanic is fully booked.";
     exit;
